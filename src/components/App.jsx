@@ -1,15 +1,10 @@
-import PhonebookForm from 'components/PhonebookForm/PhonebookForm';
-import Filter from 'components/Filter/Filter';
-import PhonebookList from 'components/PhonebookList/PhonebookList';
+import Container from './Container/Container.js';
+import PostsView from '../views/PostsView';
 
 export default function App() {
   return (
-    <div>
-      <h1>Phonebook</h1>
-      <PhonebookForm />
-      <h2>Contacts</h2>
-      <Filter />
-      <PhonebookList />
-    </div>
+    <Container>
+      <PostsView />
+    </Container>
   );
 }

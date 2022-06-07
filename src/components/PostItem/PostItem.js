@@ -1,11 +1,12 @@
 import React from 'react';
-import s from './PhonebookItem.module.css';
+import s from './PostItem.module.css';
 import { useDeleteContactMutation } from '../../redux/phonebook-reducer';
-const PhonebookItem = ({ contact }) => {
+const PostItem = ({ contact }) => {
   const [deleteContact] = useDeleteContactMutation();
   return (
     <li className={s.contact}>
-      {contact.name}: {contact.number}{' '}
+      <h2 className={s.title}>{contact.title}</h2>
+      <p className={s.text}>{contact.body}</p>
       <button
         type="button"
         className={s.delete}
@@ -13,7 +14,14 @@ const PhonebookItem = ({ contact }) => {
       >
         Delete
       </button>
+      <button
+        type="button"
+        className={s.delete}
+        onClick={() => deleteContact(contact.id)}
+      >
+        Update
+      </button>
     </li>
   );
 };
-export default PhonebookItem;
+export default PostItem;

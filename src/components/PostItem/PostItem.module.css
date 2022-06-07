@@ -1,0 +1,32 @@
+.contact {
+    margin-bottom: 10px;
+    padding: 5px;
+    justify-content: space-between;
+    border: 2px solid greenyellow;
+    max-width: 500px;
+    height: 100%;
+    transition: all 0.3s ease 0s;
+}
+.contact:hover {
+    background-color:rgb(152, 230, 152) ;
+    border: 2px solid rgb(93, 155, 2);
+}
+.title{
+    font-size: 20px;
+
+}
+.text{
+    font-size: 16px;
+}
+.contact:last-child {
+    margin-bottom: 0px;
+}
+
+.delete {
+    margin: 0 0 0 10px;
+    transition: all 0.3s ease 0s;
+}
+
+.delete:hover {
+    background-color: rgb(235, 121, 121);
+}
