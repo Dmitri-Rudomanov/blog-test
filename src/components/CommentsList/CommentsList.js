@@ -4,8 +4,8 @@ import {
   useFetchCommentsQuery,
   useDeleteCommentsMutation,
 } from '../../redux/comments-reducer';
-
-const PostsList = PostId => {
+import PropTypes from 'prop-types';
+const CommentsList = PostId => {
   const { data, isLoading } = useFetchCommentsQuery();
   const [deleteComment] = useDeleteCommentsMutation();
   const filterCheck = () => {
@@ -36,4 +36,7 @@ const PostsList = PostId => {
   );
 };
 
-export default PostsList;
+export default CommentsList;
+CommentsList.propTypes = {
+  PostId: PropTypes.string,
+};

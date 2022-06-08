@@ -14,6 +14,12 @@ const styles = {
   text: {
     marginRight: 15,
   },
+  wrapper: {
+    backgroundImage:
+      'url(https://static.tumblr.com/maopbtg/E9Bmgtoht/lines.png), url(https://static.tumblr.com/maopbtg/nBUmgtogx/paper.png) ',
+    backgroundRepeat: 'repeat-y, repeat',
+    backgroundSize: 'contain',
+  },
 };
 
 export default function PostsView() {
@@ -24,7 +30,7 @@ export default function PostsView() {
   };
 
   return (
-    <div>
+    <div style={styles.wrapper}>
       <div style={styles.create}>
         <h1 style={styles.text}>Create NEW post</h1>
         <IconButton onClick={onModalShow} aria-label="Добавить todo">

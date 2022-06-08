@@ -5,7 +5,6 @@ import { useCreateCommentsMutation } from '../../redux/comments-reducer';
 export default function CommentsForm({ PostId }) {
   const [createComment] = useCreateCommentsMutation();
   const [text, setText] = useState('');
-
   const handleChange = e => {
     const { name, value } = e.currentTarget;
     if (name === 'comment') {
@@ -45,5 +44,5 @@ export default function CommentsForm({ PostId }) {
 }
 
 CommentsForm.propTypes = {
-  PostId: PropTypes.number,
+  PostId: PropTypes.string,
 };

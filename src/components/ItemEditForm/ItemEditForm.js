@@ -70,6 +70,8 @@ export default function ItemEditForm({
 }
 
 ItemEditForm.propTypes = {
-  name: PropTypes.string,
-  number: PropTypes.string,
+  titleValue: PropTypes.string,
+  textValue: PropTypes.string,
+  postId: PropTypes.string,
+  updateChange: PropTypes.func,
 };

@@ -1,21 +1,31 @@
 .post {
-    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    flex:1 1 50%;
+    margin: 15px;
     padding: 10px;
     justify-content: space-between;
     border: 2px solid greenyellow;
     max-width: 500px;
     height: 100%;
-    max-height: 290px;
+    min-height: 230px;
+    max-height: 230px;
     transition: all 0.3s ease 0s;
+    background-color: rgba(255, 255, 255, 0.534);
 }
 .postFull {
-    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 50%;
+    margin: 15px;
     padding: 10px;
     justify-content: space-between;
     border: 2px solid greenyellow;
     max-width: 500px;
     height: 100%;
+    min-height: 200px;
     transition: all 0.3s ease 0s;
+        background-color: rgba(255, 255, 255, 0.445);
 }
 .post:hover {
     background-color:rgb(152, 230, 152) ;
@@ -26,6 +36,7 @@
 
 }
 .text{
+    flex:1 1 100%;
     overflow: hidden;
     max-height: 150px;
     font-size: 16px;
@@ -42,11 +53,32 @@
     margin-bottom: 0px;
 }
 
-.delete {
-    margin: 0px 0 0 10px;
-    transition: all 0.3s ease 0s;
-}
 
 .delete:hover {
     background-color: rgb(235, 121, 121);
+}
+.upd:hover {
+    background-color: rgb(222, 250, 62);
+}
+.watch:hover {
+    background-color: rgb(135, 253, 38);
+}
+.buttons{
+    display: flex;
+    justify-content: space-around;
+}
+.buttons button{
+        transition: all 0.3s ease 0s;
+        padding: 9px;
+        cursor: pointer;
+        background-color: rgb(206, 205, 205);
+}
+
+@media (max-width:760px) {
+    .postFull{
+        flex:1 1 100%;
+    }
+    .post{
+        flex:1 1 100%;
+    }
 }

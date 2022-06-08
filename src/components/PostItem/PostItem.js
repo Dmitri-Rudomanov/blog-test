@@ -34,23 +34,25 @@ const PostItem = ({ post }) => {
           {showMore && <CommentsForm PostId={post.id} />}
           {showMore && <CommentsList PostId={post.id} />}
 
-          <button
-            type="button"
-            className={s.delete}
-            onClick={() => deletePost(post.id)}
-          >
-            Delete
-          </button>
-          <button
-            type="button"
-            onClick={() => setUpdate(true)}
-            className={s.delete}
-          >
-            Update
-          </button>
-          <button type="button" className={s.delete} onClick={showMoreClick}>
-            {showMore === false ? 'Watch More' : 'Watch Less'}
-          </button>
+          <div className={s.buttons}>
+            <button
+              type="button"
+              className={s.delete}
+              onClick={() => deletePost(post.id)}
+            >
+              Delete
+            </button>
+            <button
+              type="button"
+              onClick={() => setUpdate(true)}
+              className={s.upd}
+            >
+              Update
+            </button>
+            <button type="button" className={s.watch} onClick={showMoreClick}>
+              {showMore === false ? 'Watch More' : 'Watch Less'}
+            </button>
+          </div>
         </li>
       )}
     </>

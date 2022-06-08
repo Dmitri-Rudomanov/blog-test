@@ -67,6 +67,5 @@ export default function PostForm({ onModalShow }) {
 }
 
 PostForm.propTypes = {
-  name: PropTypes.string,
-  number: PropTypes.string,
+  onModalShow: PropTypes.func,
 };

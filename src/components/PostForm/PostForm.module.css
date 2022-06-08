@@ -1,5 +1,7 @@
 
 * {
+    box-sizing: border-box;
+    border-radius: 10px;
     outline: none;
     border: none;
     margin: 0px;
@@ -7,9 +9,10 @@
     font-family: Courier, monospace;
 }
 
-/* body {
-    background: #333 url(https://static.tumblr.com/maopbtg/a5emgtoju/inflicted.png) repeat;
-} */
+ body {
+        background-image: url(https://static.tumblr.com/maopbtg/nBUmgtogx/paper.png);
+            background-repeat:repeat;
+} 
 
 .paper {
     color: #FFF;
@@ -36,8 +39,8 @@
 .text {
      word-wrap: break-word;
     resize: none;
-    height: 160px;
-    width: 300px;
+    height: 400px;
+    width: 450px;
     overflow: auto;
     background-color: #FFF;
     color: #222;
@@ -119,7 +122,7 @@
         width: 200px;
     }
     .text  {
-        width: 280px;
+        width: 380px;
             padding-left: 40px;
                 padding-right: 40px;
                 padding-top: 10px;
@@ -131,7 +134,8 @@
         width: 200px;
     }
     .text  {
-        width: 220px;
+        width: 280px;
+        height: 300px;
             padding-left: 40px;
                 padding-right: 40px;
                 padding-top: 10px;
