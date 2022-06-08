@@ -1,7 +1,7 @@
 import Container from './Container/Container.js';
 import PostsView from '../views/PostsView';
 import AppBar from './AppBar/AppBar.js';
-import { lazy, Suspense } from 'react';
+import { Suspense } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import Loader from './Loader/Loader.js';
 import About from './About/About.js';

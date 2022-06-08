@@ -7,6 +7,7 @@ const modalRoot = document.querySelector('#modal-root');
 const Modal = ({ onClose, children }) => {
   useEffect(() => {
     window.addEventListener('keydown', handleKeyDown);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
