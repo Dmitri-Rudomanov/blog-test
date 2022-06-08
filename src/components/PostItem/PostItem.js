@@ -12,7 +12,6 @@ const PostItem = ({ post }) => {
   const updateChange = value => {
     setUpdate(value);
   };
-  console.log(update);
   const showMoreClick = () => {
     setShowMore(prevState => !prevState);
   };

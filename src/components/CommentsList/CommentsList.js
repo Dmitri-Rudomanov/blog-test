@@ -8,7 +8,6 @@ import {
 const PostsList = PostId => {
   const { data, isLoading } = useFetchCommentsQuery();
   const [deleteComment] = useDeleteCommentsMutation();
-  console.log(data);
   const filterCheck = () => {
     if (data) {
       return data.filter(comment => comment.postId === PostId.PostId);
