@@ -2,7 +2,7 @@
   "name": "react-homework-template",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://Dmitri-Rudomanov.github.io/goit-react-hw-07-phonebook/",
+  "homepage": "https://Dmitri-Rudomanov.github.io/test-blog/",
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.1",
     "@testing-library/jest-dom": "^5.16.1",
@@ -13,6 +13,7 @@
     "react-dom": "^17.0.2",
     "react-loader-spinner": "^5.1.5",
     "react-redux": "^7.2.8",
+    "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.0",
     "redux": "^4.1.2",
     "redux-persist": "^6.0.0",
