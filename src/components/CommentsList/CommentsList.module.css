@@ -6,6 +6,10 @@
     cursor: pointer;
     padding: 4px;
     background-color: rgb(189, 186, 186);
+    transition: all 0.3s ease 0s;
+}
+.btn:hover{
+    background-color: rgb(226, 63, 63);
 }
 .item{
     margin: 0 0 15px 0;

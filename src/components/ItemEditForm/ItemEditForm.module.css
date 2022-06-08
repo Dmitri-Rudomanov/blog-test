@@ -18,5 +18,13 @@
     border: 2px solid gray;
     padding: 5px;
     resize: none;
-    height: 150px;
+    height: 120px;
+}
+.button{
+    padding: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+.button:hover{
+    background-color: rgb(151, 228, 35);
 }
