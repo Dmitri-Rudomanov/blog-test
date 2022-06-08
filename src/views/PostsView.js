@@ -25,7 +25,6 @@ export default function PostsView() {
 
   return (
     <div>
-      {/* <PhonebookForm /> */}
       <div style={styles.create}>
         <h1 style={styles.text}>Create NEW post</h1>
         <IconButton onClick={onModalShow} aria-label="Добавить todo">
