@@ -1,48 +1,48 @@
 import { useState } from 'react';
 import s from './PostForm.module.css';
 import PropTypes from 'prop-types';
-import shortid from 'shortid';
-import { useCreateContactMutation } from '../../redux/phonebook-reducer';
-export default function PostForm() {
-  const [createContact] = useCreateContactMutation();
-  const [name, setName] = useState('');
-  const [number, setNumber] = useState('');
+import { useCreatePostsMutation } from '../../redux/posts-reducer';
+export default function PostForm({ onModalShow }) {
+  const [createPost] = useCreatePostsMutation();
+  const [title, setTitle] = useState('');
+  const [text, setText] = useState('');
 
   const handleChange = e => {
     const { name, value } = e.currentTarget;
 
     switch (name) {
       case 'title':
-        setName(value);
+        setTitle(value);
         break;
       case 'text':
-        setNumber(value);
+        setText(value);
         break;
       default:
         return;
     }
   };
-  const addNewContact = items => {
-    createContact({ id: shortid.generate(), ...items });
+  const addNewPost = items => {
+    createPost({ ...items });
   };
 
-  const addContact = e => {
+  const addPost = e => {
     e.preventDefault();
-    addNewContact({ name, number });
-    setName('');
-    setNumber('');
+    addNewPost({ title, text });
+    setTitle('');
+    setText('');
+    onModalShow();
   };
 
   return (
     <div className={s.wrapper}>
-      <form onSubmit={addContact} className={s.paper}>
+      <form onSubmit={addPost} className={s.paper}>
         <label className={s.margin}>
           Title:
           <input
             type="text"
             name="title"
             className={s.title}
-            value={name}
+            value={title}
             onChange={handleChange}
             required
           />
@@ -50,7 +50,7 @@ export default function PostForm() {
         <label className={s.label}>
           <textarea
             className={s.text}
-            value={number}
+            value={text}
             onChange={handleChange}
             required
             placeholder="Enter something funny."

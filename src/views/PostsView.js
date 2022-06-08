@@ -22,7 +22,10 @@ export default function PostsView() {
       <h2>Posts</h2>
       <PhonebookList />
       {showModal && (
-        <Modal onClose={onModalShow} children={<PhonebookForm />}></Modal>
+        <Modal
+          onClose={onModalShow}
+          children={<PhonebookForm onModalShow={onModalShow} />}
+        ></Modal>
       )}
     </div>
   );

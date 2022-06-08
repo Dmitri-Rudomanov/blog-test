@@ -2,34 +2,59 @@ import React, { useState } from 'react';
 import s from './PostItem.module.css';
 import CommentsList from '../CommentsList/CommentsList';
 import CommentsForm from '../CommentsForm/CommentForm';
-import { useDeleteContactMutation } from '../../redux/phonebook-reducer';
-const PostItem = ({ contact }) => {
-  const [deleteContact] = useDeleteContactMutation();
+import ItemEditForm from '../ItemEditForm/ItemEditForm';
+import { useDeletePostsMutation } from '../../redux/posts-reducer';
+const PostItem = ({ post }) => {
+  const [deletePost] = useDeletePostsMutation();
   const [showMore, setShowMore] = useState(false);
+  const [update, setUpdate] = useState(false);
+
+  const updateChange = value => {
+    setUpdate(value);
+  };
+  console.log(update);
   const showMoreClick = () => {
     setShowMore(prevState => !prevState);
   };
   return (
-    <li className={showMore ? s.contactFull : s.contact}>
-      <h2 className={s.title}>{contact.title}</h2>
-      <p className={showMore ? s.textFull : s.text}>{contact.body}</p>
+    <>
+      {update ? (
+        <div className={s.post}>
+          <ItemEditForm
+            titleValue={post.title}
+            textValue={post.body}
+            postId={post.id}
+            updateChange={updateChange}
+          />
+        </div>
+      ) : (
+        <li className={showMore ? s.postFull : s.post}>
+          <h2 className={s.title}>{post.title}</h2>
+          <p className={showMore ? s.textFull : s.text}>{post.body}</p>
 
-      {showMore && <CommentsForm PostId={contact.id} />}
-      {showMore && <CommentsList PostId={contact.id} />}
-      <button
-        type="button"
-        className={s.delete}
-        onClick={() => deleteContact(contact.id)}
-      >
-        Delete
-      </button>
-      <button type="button" className={s.delete}>
-        Update
-      </button>
-      <button type="button" className={s.delete} onClick={showMoreClick}>
-        {showMore === false ? 'Watch Full post' : 'Watch Less'}
-      </button>
-    </li>
+          {showMore && <CommentsForm PostId={post.id} />}
+          {showMore && <CommentsList PostId={post.id} />}
+
+          <button
+            type="button"
+            className={s.delete}
+            onClick={() => deletePost(post.id)}
+          >
+            Delete
+          </button>
+          <button
+            type="button"
+            onClick={() => setUpdate(true)}
+            className={s.delete}
+          >
+            Update
+          </button>
+          <button type="button" className={s.delete} onClick={showMoreClick}>
+            {showMore === false ? 'Watch More' : 'Watch Less'}
+          </button>
+        </li>
+      )}
+    </>
   );
 };
 export default PostItem;

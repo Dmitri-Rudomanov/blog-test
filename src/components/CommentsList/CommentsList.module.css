@@ -1,0 +1,16 @@
+.list{
+    list-style: none;
+    margin: 10px 0 0 0 ;
+}
+.btn{
+    cursor: pointer;
+    padding: 4px;
+    background-color: rgb(189, 186, 186);
+}
+.item{
+    margin: 0 0 15px 0;
+}
+
+.text{
+    margin: 10px 0;
+}

@@ -1,6 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { combineReducers } from 'redux';
 
 export const commentsApi = createApi({
   reducerPath: 'commentsApi',
@@ -26,7 +24,7 @@ export const commentsApi = createApi({
         method: 'POST',
         body: {
           postId: content.PostId,
-          body: content.name,
+          body: content.text,
         },
       }),
       invalidatesTags: ['Comments'],

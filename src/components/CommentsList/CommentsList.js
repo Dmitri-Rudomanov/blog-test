@@ -1,25 +1,34 @@
-import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
-import { useFetchCommentsQuery } from '../../redux/comments-reducer';
+import React from 'react';
+import s from './CommentsList.module.css';
+import {
+  useFetchCommentsQuery,
+  useDeleteCommentsMutation,
+} from '../../redux/comments-reducer';
+
 const PostsList = PostId => {
-  const [filtered, setFiltered] = useState([]);
   const { data, isLoading } = useFetchCommentsQuery();
+  const [deleteComment] = useDeleteCommentsMutation();
   console.log(data);
-  console.log(PostId.PostId);
   const filterCheck = () => {
     if (data) {
       return data.filter(comment => comment.postId === PostId.PostId);
     }
   };
-  console.log(filterCheck());
   return (
     <>
       {!isLoading && (
-        <ul>
+        <ul className={s.list}>
           {filterCheck().map(comment => (
-            <li key={comment.id}>
-              <h3>Comment #{comment.id}</h3>
-              <p>{comment.body}</p>
+            <li className={s.item} key={comment.id}>
+              <h3>Comment:</h3>
+              <p className={s.text}>{comment.body}</p>
+              <button
+                onClick={() => deleteComment(comment.id)}
+                className={s.btn}
+                type="button"
+              >
+                Delete Comment
+              </button>
             </li>
           ))}
         </ul>

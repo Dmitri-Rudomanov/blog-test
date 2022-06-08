@@ -1,20 +1,15 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
+import s from './CommentsForm.module.css';
 import { useCreateCommentsMutation } from '../../redux/comments-reducer';
 export default function CommentsForm({ PostId }) {
   const [createComment] = useCreateCommentsMutation();
-  const [name, setName] = useState('');
-  const [number, setNumber] = useState('');
+  const [text, setText] = useState('');
 
   const handleChange = e => {
     const { name, value } = e.currentTarget;
-
-    switch (name) {
-      case 'comment':
-        setName(value);
-        break;
-      default:
-        return;
+    if (name === 'comment') {
+      setText(value);
     }
   };
   const addNewContact = items => {
@@ -23,31 +18,32 @@ export default function CommentsForm({ PostId }) {
 
   const addContact = e => {
     e.preventDefault();
-    addNewContact({ name, PostId });
-    setName('');
-    setNumber('');
+    addNewContact({ text, PostId });
+    setText('');
   };
 
   return (
     <div>
-      <form onSubmit={addContact}>
+      <form className={s.form} onSubmit={addContact}>
         <label>
           Write your Comment:
           <input
+            className={s.input}
             type="text"
             name="comment"
-            value={name}
+            value={text}
             onChange={handleChange}
             required
           />
         </label>
-        <button type="submit">Add comment</button>
+        <button className={s.btn} type="submit">
+          Add comment
+        </button>
       </form>
     </div>
   );
 }
 
 CommentsForm.propTypes = {
-  name: PropTypes.string,
-  number: PropTypes.string,
+  PostId: PropTypes.number,
 };

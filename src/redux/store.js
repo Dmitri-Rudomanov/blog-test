@@ -1,17 +1,17 @@
 import { configureStore } from '@reduxjs/toolkit';
 
 import { setupListeners } from '@reduxjs/toolkit/query';
-import { contactsApi } from './phonebook-reducer';
+import { postsApi } from './posts-reducer';
 import { commentsApi } from './comments-reducer';
 
 const store = configureStore({
   reducer: {
-    [contactsApi.reducerPath]: contactsApi.reducer,
+    [postsApi.reducerPath]: postsApi.reducer,
     [commentsApi.reducerPath]: commentsApi.reducer,
   },
   middleware: getDefaultMiddleware => [
     ...getDefaultMiddleware(),
-    contactsApi.middleware,
+    postsApi.middleware,
     commentsApi.middleware,
   ],
 });
